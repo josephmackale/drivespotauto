@@ -30,3 +30,6 @@ yarn.lock
 yarn-error.log
 /test-results
 /playwright-report
+# Allow Bagisto/Laravel view overrides (we intentionally version these)
+!resources/views/vendor/
+!resources/views/vendor/**

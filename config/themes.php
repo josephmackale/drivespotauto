@@ -24,6 +24,21 @@ return [
                 'package_assets_directory' => 'src/Resources/assets',
             ],
         ],
+        'drivespot' => [
+            'name' => 'DriveSpot Theme',
+
+            // use default theme assets
+            'assets_path' => 'public/themes/shop/default',
+
+            // override views only
+            'views_path' => 'resources/themes/drivespot/views',
+
+            'vite' => [
+                'hot_file' => 'shop-default-vite.hot',
+                'build_directory' => 'themes/shop/default/build',
+                'package_assets_directory' => 'src/Resources/assets',
+            ],
+        ],
     ],
 
     /*
