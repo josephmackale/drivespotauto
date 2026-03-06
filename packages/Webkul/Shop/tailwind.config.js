@@ -1,6 +1,14 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-    content: ["./src/Resources/**/*.blade.php", "./src/Resources/**/*.js"],
+    content: [
+    "./src/Resources/**/*.blade.php",
+    "./src/Resources/**/*.js",
+
+    // Your overrides + theme
+    "../../../resources/views/**/*.blade.php",
+    "../../../resources/themes/**/views/**/*.blade.php",
+    "../../../resources/themes/**/**/*.blade.php",
+    ],
 
     theme: {
         container: {
@@ -34,6 +42,11 @@ module.exports = {
                 darkGreen: '#40994A',
                 darkBlue: '#0044F2',
                 darkPink: '#F85156',
+
+                ds: {
+                    brand: "#f85a00",
+                    muted: "#8e979c",
+                },
             },
 
             fontFamily: {

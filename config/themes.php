@@ -10,12 +10,12 @@ return [
     |
     */
 
-    'shop-default' => 'default',
+    'shop-default' => 'drivespot',
 
     'shop' => [
         'default' => [
             'name' => 'Default',
-            'assets_path' => 'public/themes/shop/default',
+            'assets_path' => 'public/themes/shop/drivespot',
             'views_path' => 'resources/themes/default/views',
 
             'vite' => [
@@ -27,16 +27,12 @@ return [
         'drivespot' => [
             'name' => 'DriveSpot Theme',
 
-            // use default theme assets
-            'assets_path' => 'public/themes/shop/default',
-
-            // override views only
-            'views_path' => 'resources/themes/drivespot/views',
+            'assets_path' => 'public/themes/shop/drivespot',
+            'views_path'  => 'resources/themes/drivespot/views',
 
             'vite' => [
                 'hot_file' => 'shop-default-vite.hot',
-                'build_directory' => 'themes/shop/default/build',
-                'package_assets_directory' => 'src/Resources/assets',
+                'build_directory' => 'themes/shop/drivespot/build',
             ],
         ],
     ],
