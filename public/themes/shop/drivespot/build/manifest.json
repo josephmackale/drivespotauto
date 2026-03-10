@@ -1,0 +1,16 @@
+{
+  "resources/themes/drivespot/src/Resources/assets/css/app.css": {
+    "file": "assets/app-BoHK5WPg.css",
+    "src": "resources/themes/drivespot/src/Resources/assets/css/app.css",
+    "isEntry": true
+  },
+  "resources/themes/drivespot/src/Resources/assets/js/app.js": {
+    "file": "assets/app-BBZYDpaL.js",
+    "name": "app",
+    "src": "resources/themes/drivespot/src/Resources/assets/js/app.js",
+    "isEntry": true,
+    "css": [
+      "assets/app-BoHK5WPg.css"
+    ]
+  }
+}

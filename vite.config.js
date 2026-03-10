@@ -15,8 +15,8 @@ export default defineConfig({
     plugins: [
         laravel({
             input: [
-                'src/Resources/assets/css/app.css',
-                'src/Resources/assets/js/app.js',
+                'resources/themes/drivespot/src/Resources/assets/css/app.css',
+                'resources/themes/drivespot/src/Resources/assets/js/app.js',
             ],
             refresh: true,
         }),

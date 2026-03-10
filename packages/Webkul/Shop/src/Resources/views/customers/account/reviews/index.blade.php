@@ -68,7 +68,7 @@
 
                                         <x-shop::media.images.lazy
                                             class="h-[146px] max-h-[146px] w-32 min-w-32 max-w-32 rounded-xl"
-                                            src="{{ $review->product->base_image_url ?? bagisto_asset('images/small-product-placeholder.webp') }}"
+                                            src="{{ $review->product->base_image_url ?? asset('themes/shop/drivespot/images/small-product-placeholder.webp') }}"
                                             alt="Review Image"                   
                                         />
 
@@ -130,7 +130,7 @@
     
                                             <x-shop::media.images.lazy
                                                 class="h-[146px] max-h-[146px] w-32 min-w-32 max-w-32 rounded-xl max-md:h-20 max-md:w-20 max-md:min-w-20 max-md:rounded-lg"
-                                                src="{{ $review->product->base_image_url ?? bagisto_asset('images/small-product-placeholder.webp') }}"
+                                                src="{{ $review->product->base_image_url ?? asset('themes/shop/drivespot/images/small-product-placeholder.webp') }}"
                                                 alt="Review Image"                   
                                             />
     

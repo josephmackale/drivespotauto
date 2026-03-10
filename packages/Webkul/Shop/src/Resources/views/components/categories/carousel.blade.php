@@ -107,7 +107,7 @@
 
                     offset: 323,
 
-                    fallback: "{{ bagisto_asset('images/small-product-placeholder.webp') }}"
+                    fallback: "{{ asset('themes/shop/drivespot/images/small-product-placeholder.webp') }}"
                 };
             },
 
