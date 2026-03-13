@@ -1,0 +1,13 @@
+INSERT INTO users VALUES(1,'Admin','admin@drivespotauto.com',NULL,'$2y$12$/.J7vgxm4YSJlcNk4MdtCej/7xOffS5MGkcqjirNRS6XDD.HYBFuC','mWtTsBaEdSyrvXi2LY14ZAysewcaA14CAJyoa3dtrLfNMkaODqSaYKn80VDD','2026-03-11 11:51:30','2026-03-11 11:51:30');
+INSERT INTO brands VALUES(1,'MAGNETI MARELLI','magneti-marelli',NULL,NULL,'2026-03-11 11:53:15','2026-03-11 11:53:15');
+INSERT INTO categories VALUES(1,'Filters ','filters',NULL,'2026-03-11 11:53:51','2026-03-11 11:53:51');
+INSERT INTO products VALUES(1,' Oil filter MAGNETI MARELLI 152071758829','152071758829',1000,10,' Oil filter MAGNETI MARELLI 152071758829',NULL,'2026-03-11 11:57:41','2026-03-12 08:51:54',1,1,1,'oil-filter-magneti-marelli-152071758829',NULL,1,0,'products/01KKEH2R16J36Y0F87MAHM7VH2.jpg','MAGNETI MARELLI 152071758829 Oil Filter','Buy MAGNETI MARELLI 152071758829 oil filter insert. Article number 152071758829. EAN 8001063523620.','oil filter, magneti marelli oil filter, 152071758829, filter insert');
+INSERT INTO product_attributes VALUES(1,'Filter type:','filter-type','text',NULL,NULL,NULL,'2026-03-11 11:54:19','2026-03-11 11:54:19');
+INSERT INTO product_attributes VALUES(2,'Height [mm]:','height-mm','text',NULL,NULL,NULL,'2026-03-11 11:54:41','2026-03-11 11:54:41');
+INSERT INTO product_attributes VALUES(3,'Diameter 1 [mm]:','diameter-1-mm','text',NULL,NULL,NULL,'2026-03-11 11:55:32','2026-03-11 11:55:32');
+INSERT INTO product_attributes VALUES(4,'Diameter 2 [mm]:','diameter-2-mm','text',NULL,NULL,NULL,'2026-03-11 11:55:45','2026-03-11 11:55:45');
+INSERT INTO product_attribute_values VALUES(1,1,2,'118','2026-03-11 11:59:10','2026-03-11 11:59:10');
+INSERT INTO product_attribute_values VALUES(2,1,3,'66','2026-03-11 13:26:10','2026-03-11 13:26:10');
+INSERT INTO product_attribute_values VALUES(3,1,4,'25','2026-03-11 13:26:10','2026-03-11 13:26:10');
+INSERT INTO product_attribute_values VALUES(4,1,1,'Filter Insert','2026-03-11 13:26:10','2026-03-11 13:26:10');
+INSERT INTO product_images VALUES(2,1,'products/01KKEH2R17MQ216QE75032Z1WN.jpg',0,'2026-03-11 13:02:29','2026-03-11 13:23:49');

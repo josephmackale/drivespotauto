@@ -1,0 +1,1 @@
+INSERT INTO users VALUES(1,'Admin','admin@drivespotauto.com',NULL,'$2y$12$/.J7vgxm4YSJlcNk4MdtCej/7xOffS5MGkcqjirNRS6XDD.HYBFuC','mWtTsBaEdSyrvXi2LY14ZAysewcaA14CAJyoa3dtrLfNMkaODqSaYKn80VDD','2026-03-11 11:51:30','2026-03-11 11:51:30');
