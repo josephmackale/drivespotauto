@@ -36,13 +36,21 @@
 
     @if($parentCategory)
         <span>|</span>
-        <a href="{{ route('shop.vehicle.category', [$vehicle->key_canonical, $parentCategory->slug]) }}"
-           class="hover:text-black">
-            {{ $parentCategory->name }}
-        </a>
+
+        @if($hasVehicle)
+            <a href="{{ route('shop.vehicle.category', [$vehicle->key_canonical, $parentCategory->slug]) }}"
+               class="hover:text-black">
+                {{ $parentCategory->name }}
+            </a>
+        @else
+            <a href="{{ route('shop.category', $parentCategory->slug) }}"
+               class="hover:text-black">
+                {{ $parentCategory->name }}
+            </a>
+        @endif
     @endif
 
-    @if($selectedCategorySafe)
+    @if($selectedCategorySafe && $selectedCategorySafe->id !== ($parentCategory->id ?? null))
         <span>|</span>
         <span class="text-gray-900 font-semibold">
             {{ $selectedCategorySafe->name }}

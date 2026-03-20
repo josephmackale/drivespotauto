@@ -8,7 +8,7 @@
     $model = $hasVehicle ? $vehicle->generation?->model : null;
 
     $yearToDisplay = $hasVehicle
-        ? (($vehicle->year_to ?? null) == 9999 ? 'Present' : $vehicle->year_to)
+        ? ((int) ($vehicle->year_to ?? null) === 2099 ? 'Present' : $vehicle->year_to)
         : null;
 
     $isSubcategory = $selectedCategorySafe && !empty($selectedCategorySafe->parent_id);

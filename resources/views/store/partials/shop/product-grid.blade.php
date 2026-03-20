@@ -1,11 +1,29 @@
-<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+@php
+    $hasProducts = $products->count() > 0;
+    $hasPagination = method_exists($products, 'hasPages') && $products->hasPages();
+@endphp
 
-    @foreach($products as $product)
+@if($hasProducts)
 
-        @include('store.partials.shop.product-card', [
-            'product' => $product
-        ])
+    {{-- Product Grid --}}
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        @foreach($products as $product)
+            @include('store.partials.shop.product-card', [
+                'product' => $product
+            ])
+        @endforeach
+    </div>
 
-    @endforeach
+    {{-- Pagination --}}
+    @if($hasPagination)
+        <div class="mt-8">
+            {{ $products->links() }}
+        </div>
+    @endif
 
-</div>
+@else
+
+    {{-- Empty State --}}
+    @include('store.partials.shop.empty-state')
+
+@endif

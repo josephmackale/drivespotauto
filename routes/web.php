@@ -48,6 +48,9 @@ Route::get('/shop/vehicle/{vehicle_key}/{category_slug}/{subcategory_slug}', [Sh
 Route::get('/shop/category/{slug}', [ShopController::class, 'category'])
     ->name('shop.category');
 
+Route::get('/shop/category/{category_slug}/{subcategory_slug}', [ShopController::class, 'subcategory'])
+    ->name('shop.subcategory');
+    
 /*
 |--------------------------------------------------------------------------
 | Cart & Checkout
