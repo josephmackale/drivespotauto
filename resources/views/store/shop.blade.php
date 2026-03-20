@@ -1,59 +1,66 @@
 @extends('layouts.store')
 
+@section('title')
+    @php
+        $hasVehicle = isset($vehicle) && $vehicle;
+        $selectedCategorySafe = $selectedCategory ?? null;
+
+        $makeName = $hasVehicle ? $vehicle->generation?->model?->make?->name : null;
+        $modelName = $hasVehicle ? $vehicle->generation?->model?->name : null;
+        $engineCode = $hasVehicle ? $vehicle->engine_code : null;
+
+        $baseParts = array_filter([
+            $makeName,
+            $modelName,
+            $engineCode,
+        ]);
+    @endphp
+
+    @if($hasVehicle && $selectedCategorySafe)
+        {{ implode(' ', $baseParts) }} {{ $selectedCategorySafe->name }} | DriveSpot Auto
+    @elseif($hasVehicle)
+        {{ implode(' ', $baseParts) }} Parts | DriveSpot Auto
+    @elseif($selectedCategorySafe)
+        {{ $selectedCategorySafe->name }} | DriveSpot Auto
+    @else
+        Shop Auto Parts Online | DriveSpot Auto
+    @endif
+@endsection
+
 @section('content')
+
+    @include('store.partials.shop.header')
+
+    <div class="max-w-7xl mx-auto px-4 pt-6">
+        @include('store.partials.shop.breadcrumbs')
+    </div>
+
     <section class="max-w-7xl mx-auto px-4 py-10">
-        <div class="mb-8">
-            <h1 class="text-3xl font-bold">Shop</h1>
-            <p class="text-gray-600 mt-2">Browse our auto parts catalog.</p>
-        </div>
+        <div class="grid grid-cols-1 lg:grid-cols-[280px_minmax(0,1fr)] gap-10 items-start">
 
-        @if($products->count())
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-                @foreach($products as $product)
-                    <div class="bg-white rounded-2xl border border-gray-200 p-5 shadow-sm hover:shadow-lg hover:-translate-y-1 transition">
-                        <div class="aspect-square bg-gray-50 rounded-2xl mb-4 flex items-center justify-center overflow-hidden">
-                            @if($product->image)
-                                <img
-                                    src="{{ asset('storage/' . $product->image) }}"
-                                    alt="{{ $product->name }}"
-                                    class="w-full h-full object-contain p-6 transition-transform duration-200 hover:scale-105"
-                                >
-                            @else
-                                <span class="text-sm text-gray-400">No Image</span>
-                            @endif
-                        </div>
+            <aside class="lg:sticky lg:top-6">
+                @include('store.partials.shop.sidebar')
+            </aside>
 
-                        <h2 class="font-semibold text-lg mb-2 line-clamp-2 min-h-[3.5rem]">
-                            <a href="{{ route('product.show', $product->slug) }}" class="hover:text-blue-600">
-                                {{ $product->name ?? 'Unnamed Product' }}
-                            </a>
-                        </h2>
+            <div class="min-w-0 space-y-6">
 
-                        <p class="text-xs text-gray-400 uppercase tracking-wide mb-3">
-                            {{ $product->brand->name ?? 'No Brand' }}
-                        </p>
+                <div class="bg-white border border-gray-200 rounded-2xl shadow-sm p-5 space-y-5">
+                    @include('store.partials.shop.active-filters')
+                    @include('store.partials.shop.results-meta')
+                </div>
 
-                        <p class="text-2xl font-bold text-blue-700 mb-4">
-                            KES {{ number_format((float) ($product->price ?? 0), 2) }}
-                        </p>
-
-                        <a
-                            href="{{ route('product.show', $product->slug) }}"
-                            class="block w-full text-center px-4 py-3 bg-gray-900 text-white rounded-xl hover:bg-black transition"
-                        >
-                            View Product
-                        </a>
+                @if($products->count())
+                    <div class="bg-white border border-gray-200 rounded-2xl shadow-sm p-5">
+                        @include('store.partials.shop.product-grid', ['products' => $products])
                     </div>
-                @endforeach
+                @else
+                    <div class="bg-white border border-gray-200 rounded-2xl shadow-sm p-5">
+                        @include('store.partials.shop.empty-state')
+                    </div>
+                @endif
+
             </div>
 
-            <div class="mt-8">
-                {{ $products->links() }}
-            </div>
-        @else
-            <div class="bg-white border rounded-xl p-8 text-gray-600">
-                No products found.
-            </div>
-        @endif
+        </div>
     </section>
 @endsection

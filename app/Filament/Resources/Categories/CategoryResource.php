@@ -14,6 +14,8 @@ use Filament\Schemas\Schema;
 use Filament\Support\Icons\Heroicon;
 use Filament\Tables\Table;
 use Filament\Forms\Components\TextInput;
+use Filament\Forms\Components\Select;
+use Filament\Forms\Components\FileUpload;
 
 class CategoryResource extends Resource
 {
@@ -37,6 +39,29 @@ class CategoryResource extends Resource
                 ->dehydrated()
                 ->required()
                 ->maxLength(255),
+
+            FileUpload::make('image')
+                ->label('Category Image')
+                ->image()
+                ->directory('categories')
+                ->disk('public')
+                ->imageEditor()
+                ->nullable()
+                ->helperText('Upload one image for homepage and category cards.'),
+
+            Select::make('parent_id')
+                ->label('Parent Category')
+                ->options(function ($record) {
+                    return Category::query()
+                        ->when($record, fn ($query) => $query->where('id', '!=', $record->id))
+                        ->whereNull('parent_id')
+                        ->orderBy('name')
+                        ->pluck('name', 'id');
+                })
+                ->searchable()
+                ->preload()
+                ->nullable()
+                ->placeholder('None'),
         ]);
     }
 

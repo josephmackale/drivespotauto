@@ -25,10 +25,9 @@ class Product extends Model
         'image',
         'is_active',
         'is_featured',
-
         'meta_title',
         'meta_description',
-        'meta_keywords'
+        'meta_keywords',
     ];
 
     protected $casts = [
@@ -67,8 +66,39 @@ class Product extends Model
     {
         return $this->hasMany(ProductAttributeValue::class);
     }
+
     public function images()
     {
         return $this->hasMany(ProductImage::class)->orderBy('sort_order');
+    }
+
+    public function engines()
+    {
+        return $this->belongsToMany(
+            \App\Models\VsEngine::class,
+            'product_vehicle_fitments',
+            'product_id',
+            'engine_id'
+        )->withTimestamps();
+    }
+
+    public function oeReferences()
+    {
+        return $this->belongsToMany(
+            \App\Models\OeReference::class,
+            'product_oe_reference',
+            'product_id',
+            'oe_reference_id'
+        );
+    }
+
+    public function vehicleFitments()
+    {
+        return $this->belongsToMany(
+            \App\Models\VsEngine::class,
+            'product_vehicle_fitments',
+            'product_id',
+            'engine_id'
+        )->withTimestamps();
     }
 }
